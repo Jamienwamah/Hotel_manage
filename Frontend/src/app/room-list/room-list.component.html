@@ -1,0 +1,74 @@
+<div>
+  <app-nav-bar *ngIf="auth?.role != 'admin'"></app-nav-bar>
+  <section class="list-section p-3">
+    <div class="row row-cols-1 row-cols-md-3 g-3 mt-0">
+      <!-- Add room card -->
+      <div
+        class="col add-room-card"
+        (click)="addRoom()"
+        *ngIf="auth?.role == 'admin'"
+      >
+        <div class="card card-add card-shadow">
+          <img
+            src="https://www.svgrepo.com/show/521942/add-ellipse.svg"
+            alt="Add Room Photo"
+            style="max-height: 600px"
+          />
+          <div class="card-body add-text">
+            <h5 class="card-title text-center">
+              <b>Add New Room</b>
+            </h5>
+          </div>
+        </div>
+      </div>
+      <!-- All rooms cards -->
+      <div class="col" *ngFor="let room of rooms; let i = index">
+        <div class="card card-shadow">
+          <img
+            [src]="getSanitizedImage(room.image)"
+            class="card-img-top all-card-image"
+            alt="Room Photo"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Room Number {{ room.room_id }}</h5>
+            <p class="card-text">
+              “Book your stay now and enjoy a breathtaking view of the sea from
+              our spacious and well-lit rooms. This room is located on the
+              <b>{{ room.orientation }}</b> side, with a room space of
+              <b>{{ room.surface }}</b> square meters. The price for a night's
+              stay is <b>${{ room.nightly_price }}</b
+              >!”
+            </p>
+            <div class="d-flex justify-content-center gap-4">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                (click)="book(room.room_id)"
+                *ngIf="this.auth?.role != 'admin'"
+              >
+                Book
+              </button>
+              <!-- Admin Buttons -->
+              <button
+                type="submit"
+                class="btn btn-success"
+                (click)="book(room.room_id)"
+                *ngIf="this.auth?.role == 'admin'"
+              >
+                Edit
+              </button>
+              <button
+                type="submit"
+                class="btn btn-danger"
+                (click)="deleteRoomCard(room.room_id, i)"
+                *ngIf="this.auth?.role == 'admin'"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
