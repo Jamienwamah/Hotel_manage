@@ -107,7 +107,7 @@ Admins have additional responsibilities and privileges:
 
 ### Database 🗃️:
 
-- [![MySql][MySql-sheild]][MySql-url]
+- [![Postgresql][Postgresql-sheild]][Postgresql-url]
 
 ## Getting Started 🏁
 
@@ -130,7 +130,7 @@ Before getting started, ensure you have the necessary prerequisites:
 2. Install packages
 
    ```powershell
-   cd .\Hotel-Booking-Website\Backend
+   cd .\Hotel_manage\Backend
    ```
 
    ```powershell
@@ -138,7 +138,7 @@ Before getting started, ensure you have the necessary prerequisites:
    ```
 
    ```powershell
-   cd .\Hotel-Booking-Website\Frontend
+   cd .\Hotel_manage\Frontend
    ```
 
    ```powershell
@@ -152,10 +152,10 @@ Before getting started, ensure you have the necessary prerequisites:
 1. In the project folder (bHotel-Booking-Website\Backend), locate the `.env.example` file
 2. Rename it to `.env`
 3. Open the `.env` file:
-   - Replace `MYSQL_HOST` with your actual database IP.
-   - Replace `MYSQL_USER` with your actual database User.
-   - Replace `MYSQL_PASSWORD` with your database Password for the User.
-   - Replace `MYSQL_DATABASE` with your actual database Name.
+   - Replace `POSTGRESQL_HOST` with your actual database IP.
+   - Replace `POSTGRESQL_USER` with your actual database User.
+   - Replace `POSTGRESQL_PASSWORD` with your database Password for the User.
+   - Replace `POSTGRESQL_DATABASE` with your actual database Name.
    - Replace `AUTH_KEY` with your encoder key.
 
 _I am assuming that you know how to set up your database if not this [video](https://www.youtube.com/watch?v=u96rVINbAUI) might be helpful._
@@ -167,7 +167,7 @@ _I am assuming that you know how to set up your database if not this [video](htt
 1.  Run Frontend server
 
     ```powershell
-    cd .\Hotel-Booking-Website\Frontend
+    cd .\Hotel_manage\Frontend
     ```
 
     ```powershell
